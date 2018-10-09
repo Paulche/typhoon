@@ -15,6 +15,21 @@ variable "dns_zone_id" {
   description = "AWS Route53 DNS Zone ID (e.g. Z3PAABBCFAKEC0)"
 }
 
+variable "cloud_provider" {
+  type        = "string"
+  description = "Cloud Provider for K8S"
+}
+
+variable "iam_profile_controller" {
+  type        = "string"
+  description = "AWS IAM profile name for EBS persistent volume, ELB, ... (applied to a worker node)"
+}
+
+variable "iam_profile_worker" {
+  type        = "string"
+  description = "AWS IAM profile name for EBS persistent volume, ELB, ... (applied to a worker node)"
+}
+
 # instances
 
 variable "controller_count" {

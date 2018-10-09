@@ -11,6 +11,8 @@ module "workers" {
   os_image        = "${var.os_image}"
   disk_size       = "${var.disk_size}"
   spot_price      = "${var.worker_price}"
+  iam_profile     = "${var.iam_profile_worker}"
+  cloud_provider  = "${var.cloud_provider}"
 
   # configuration
   kubeconfig            = "${module.bootkube.kubeconfig}"

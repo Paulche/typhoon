@@ -18,13 +18,16 @@ resource "aws_instance" "controllers" {
   count = "${var.controller_count}"
 
   tags = {
-    Name = "${var.cluster_name}-controller-${count.index}"
+    Name              = "${var.cluster_name}-controller-${count.index}"
+    KubernetesCluster = "${var.cluster_name}"
   }
 
   instance_type = "${var.controller_type}"
 
   ami       = "${local.ami_id}"
   user_data = "${element(data.ct_config.controller_ign.*.rendered, count.index)}"
+
+  iam_instance_profile = "${var.iam_profile_controller}"
 
   # storage
   root_block_device {
@@ -60,6 +63,8 @@ data "template_file" "controller_config" {
     ssh_authorized_key    = "${var.ssh_authorized_key}"
     k8s_dns_service_ip    = "${cidrhost(var.service_cidr, 10)}"
     cluster_domain_suffix = "${var.cluster_domain_suffix}"
+
+    cloud_provider = "${var.cloud_provider}"
   }
 }
 

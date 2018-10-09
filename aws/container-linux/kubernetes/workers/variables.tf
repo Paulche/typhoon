@@ -20,6 +20,16 @@ variable "security_groups" {
   description = "Must be set to `worker_security_groups` output by cluster"
 }
 
+variable "cloud_provider" {
+  type        = "string"
+  description = "Cloud Provider for K8S"
+}
+
+variable "iam_profile" {
+  type        = "string"
+  description = "AWS IAM profile name for EBS persistent volume, ELB, ... (applied to a worker node)"
+}
+
 # instances
 
 variable "count" {
