@@ -16,10 +16,10 @@ resource "aws_autoscaling_group" "workers" {
   launch_configuration = "${aws_launch_configuration.worker.name}"
 
   # target groups to which instances should be added
-  target_group_arns = [
-    "${aws_lb_target_group.workers-http.id}",
-    "${aws_lb_target_group.workers-https.id}",
-  ]
+  # target_group_arns = [
+  #   "${aws_lb_target_group.workers-http.id}",
+  #   "${aws_lb_target_group.workers-https.id}",
+  # ]
 
   lifecycle {
     # override the default destroy and replace update behavior

@@ -28,12 +28,12 @@ output "kubeconfig" {
 
 # Outputs for custom load balancing
 
-output "worker_target_group_http" {
-  description = "ARN of a target group of workers for HTTP traffic"
-  value       = "${module.workers.target_group_http}"
-}
+# output "worker_target_group_http" {
+#   description = "ARN of a target group of workers for HTTP traffic"
+#   value       = "${module.workers.target_group_http}"
+# }
 
-output "worker_target_group_https" {
-  description = "ARN of a target group of workers for HTTPS traffic"
-  value       = "${module.workers.target_group_https}"
-}
+# output "worker_target_group_https" {
+#   description = "ARN of a target group of workers for HTTPS traffic"
+#   value       = "${module.workers.target_group_https}"
+# }
